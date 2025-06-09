@@ -98,20 +98,16 @@ class Janken_test_JUnit {
 		int[] values = execute.enemyHandSerch(inputValues);
 		assertEquals(4,values.length);
 	}
-//
-//	@Test
-//	void logMessageTest14() {
-//		String inputValues = "5";
-//		int[] values = execute.enemyHandSerch(inputValues);
-//		assertEquals(4,values.length);
-//	}
-//
-//	@Test
-//	void logMessageTest15() {
-//		String inputValues = "5";
-//		int[] values = execute.enemyHandSerch(inputValues);
-//		assertEquals(4,values.length);
-//	}
+
+	@Test
+	void logMessageTest14() {
+	
+	}
+
+	@Test
+	void logMessageTest15() {
+		
+	}
 
 	@Test
 	void resultTest16() {
