@@ -59,13 +59,14 @@ public class Execute {
 		try {
 			File file = new File("/Applications/Eclipse_2023-12.app/Contents/workspace/test.txt");
 			
-			if(!file.canWrite()) {
-				file.setWritable(true);
-			}
+//			//書き込み権限がなければ付与
+//			if(!file.canWrite()) {
+//				file.setWritable(true);
+//			}
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 			LocalDateTime date = LocalDateTime.now();
 			String formatted = date.format(dtf);
-			FileWriter filewriter = new FileWriter(file,true);
+			FileWriter filewriter = new FileWriter(file);
 			filewriter.write(formatted);
 			filewriter.write(System.lineSeparator());
 			filewriter.write(message);

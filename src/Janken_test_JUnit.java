@@ -1,6 +1,9 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -98,10 +101,31 @@ class Janken_test_JUnit {
 		int[] values = execute.enemyHandSerch(inputValues);
 		assertEquals(4,values.length);
 	}
-
+	
+	/**
+	 * Fileが存在することは確認できた。
+	 * resultメソッドも呼び出してmessageが一致することを確認？？ 出力されていたらOK?
+	 */
 	@Test
 	void logMessageTest14() {
-	
+		try {
+			Class<Execute> executeClass = Execute.class;
+			
+			Object object = executeClass.getDeclaredConstructor().newInstance();
+			Method method = Execute.class.getDeclaredMethod("logMessage", String.class);
+			String testMessage = "testMessage";
+			method.setAccessible(true);
+			
+			String message = (String)method.invoke(object,testMessage);
+			
+			File file = new File("/Applications/Eclipse_2023-12.app/Contents/workspace/test.txt");
+			String msg = Files.readString(Paths.get("/Applications/Eclipse_2023-12.app/Contents/workspace/test.txt"));
+			assertTrue(file.exists());
+			assertEquals(message,msg);
+		} catch (Exception e ) {
+			System.out.println(e);
+			fail();
+		}
 	}
 
 	@Test
